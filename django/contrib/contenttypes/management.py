@@ -47,7 +47,7 @@ def update_contenttypes(app_config, verbosity=2, interactive=True, using=DEFAULT
             app_label=app_label,
             model=model_name,
         )
-        for (model_name, model) in six.iteritems(app_models)
+        for (model_name, model) in sorted(six.iteritems(app_models))
         if model_name not in content_types
     ]
     ContentType.objects.using(using).bulk_create(cts)
